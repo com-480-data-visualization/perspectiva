@@ -3,10 +3,12 @@ certifi==2026.2.25
 cffi==2.0.0
 charset-normalizer==3.4.5
 cryptography==46.0.5
+db-dtypes==1.5.0
 fastjsonschema==2.21.2
 google-api-core==2.30.0
 google-auth==2.49.1
 google-cloud-bigquery==3.40.1
+google-cloud-bigquery-storage==2.36.2
 google-cloud-core==2.5.0
 google-crc32c==1.8.0
 google-resumable-media==2.8.0
@@ -21,7 +23,7 @@ nbformat==5.10.4
 nbstripout==0.9.1
 numpy==2.4.3
 packaging==26.0
-pandas==3.0.1
+pandas==2.3.3
 platformdirs==4.9.4
 proto-plus==1.27.1
 protobuf==6.33.5
@@ -30,6 +32,7 @@ pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pycparser==3.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 referencing==0.37.0
 requests==2.32.5
 rpds-py==0.30.0

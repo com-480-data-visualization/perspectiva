@@ -10,13 +10,29 @@
 
 ## Milestone 1 (20th March, 5pm)
 
-**10% of the final grade**
-
 ### Dataset
 
-> Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
->
-> Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)).
+We use the **GDELT Global Knowledge Graph v2** (GKG), accessed via Google BigQuery
+(`gdelt-bq.gdeltv2.gkg`). GDELT monitors news media in over 100 languages
+across the world in near real-time, tagging each article with geographic mentions,
+sentiment scores, and thematic classifications. It is free, well-documented, and
+actively maintained.
+
+**Preprocessing requirements are light.** Sentiment is provided directly as a
+comma-separated tone string (`V2Tone`) from which we extract the overall score.
+Geographic attribution is parsed from the `V2Locations` field, with source country
+inferred from the outlet domain or a curated outlet-to-country mapping.
+
+**Known quality issues:**
+- *Aggregator pollution:* outlets like MSN and Yahoo syndicate content from other
+sources, making country attribution unreliable. We will decide on a method to take care about those cases.
+- *Location ambiguity:* `V2Locations` lists every place mentioned in an article, not
+where the article originates. We will use source outlet as the primary country signal.
+- *Duplicates:* the same article can appear multiple times across GDELT's ingestion
+pipeline. We will manage deduplicate on `DocumentIdentifier`.
+- *Scale:* querying the full table is costly, this can be managed with
+partition filtering and a curated whitelist of internationally
+representative outlets.
 
 ### Problematic
 
@@ -42,12 +58,12 @@ Two figures are especially useful. The first is Sentiment Over Time, which shows
 
 ### Related Work
 
-**Existing approaches.** The GDELT Project (blog.gdeltproject.org) publishes extensive
+**Existing approaches.** The [GDELT Project](https://blog.gdeltproject.org) publishes extensive
 research on their own dataset — conflict monitoring, election analysis, pandemic
 tracking — but outputs are static snapshots aimed at researchers, not interactive
-public tools. Media Cloud (mediacloud.org) tracks global media attention across
+public tools. [Media Cloud](https://mediacloud.org) tracks global media attention across
 thousands of outlets and supports country-level comparisons over time, but has no
-sentiment layer and no geographic animation. Newsmap (newsmap.ijmacd.com) visualizes
+sentiment layer and no geographic animation. [Newsmap](https://newsmap.ijmacd.com) visualizes
 Google News as a live treemap by country, capturing news distribution in real time but
 with no time dimension and no topic tracking.
 
@@ -57,12 +73,13 @@ and how specific major events could drastically change this. We track these
 dimensions simultaneously for user-defined topics — to our knowledge no public tool
 does this.
 
-**Visual inspiration.** Chronotrains (chronotrains.com) shows rail reachability
+**Visual inspiration.** [Chronotrains](https://www.chronotrains.com/en/explore/2659994-Lausanne) shows rail reachability
 spreading outward from a city as a time slider advances — the interaction model we
-adapt for news diffusion. The Reuters COVID tracker demonstrated that epidemiological
+adapt for news diffusion. The [Reuters COVID tracker](https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/) demonstrated that epidemiological
 and narrative spread share the same visual grammar: a phenomenon rippling outward
 across a world map over weeks. The Pudding (pudding.cool) influenced our scrollytelling
-approach — guiding users through annotated event stops rather than presenting a raw
+across a world map over weeks. [The Pudding](https://pudding.cool/2025/07/street-view/) influenced our 
+approach — guiding users through event stops over time rather than presenting a raw
 dashboard.
 
 ## Milestone 2 (17th April, 5pm)

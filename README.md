@@ -82,6 +82,14 @@ time rather than presenting a raw dashboard.
 
 Resources: [Chronotrains](https://www.chronotrains.com/en/explore/2659994-Lausanne), [Reuters COVID Tracker](https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/), [The Pudding](https://pudding.cool/2025/07/street-view/)
 
+## Resources
+Chronotrains. (n.d.). Chronotrains. https://www.chronotrains.com/en/explore/2659994-Lausanne
+GDELT Project. (n.d.). The GDELT Project. https://blog.gdeltproject.org
+Ijmacd. (n.d.). Newsmap. https://newsmap.ijmacd.com
+Media Cloud. (n.d.). Media Cloud. https://mediacloud.org
+Reuters. (n.d.). Reuters COVID tracker and maps. https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/
+The Pudding. (2025). The Pudding. https://pudding.cool/2025/07/street-view/
+
 ## Milestone 2 (17th April, 5pm)
 
 **10% of the final grade**

@@ -58,29 +58,29 @@ Two figures are especially useful. The first is Sentiment Over Time, which shows
 
 ### Related Work
 
-**Existing approaches.** The [GDELT Project](https://blog.gdeltproject.org) publishes extensive
-research on their own dataset — conflict monitoring, election analysis, pandemic
-tracking — but outputs are static snapshots aimed at researchers, not interactive
-public tools. [Media Cloud](https://mediacloud.org) tracks global media attention across
-thousands of outlets and supports country-level comparisons over time, but has no
-sentiment layer and no geographic animation. [Newsmap](https://newsmap.ijmacd.com) visualizes
-Google News as a live treemap by country, capturing news distribution in real time but
-with no time dimension and no topic tracking.
+**Existing approaches.** The GDELT Project publishes extensive research on their own
+dataset covering conflict monitoring, election analysis and pandemic tracking, but
+outputs are static snapshots aimed at researchers, not interactive public tools. Media
+Cloud tracks global media attention across thousands of outlets and supports country
+level comparisons over time, but has no sentiment layer and no geographic animation.
+Newsmap visualizes Google News as a live treemap by country, capturing news
+distribution in real time but with no time dimension for visualization.
 
-**Our originality.** Our approach is centered around the dynamic visualization over time.
-The objective is to combine how data spreads from source, how sentiment changes over time,
-and how specific major events could drastically change this. We track these
-dimensions simultaneously for user-defined topics — to our knowledge no public tool
-does this.
+Resources: [GDELT Project](https://blog.gdeltproject.org), [Media Cloud](https://mediacloud.org), [Newsmap](https://newsmap.ijmacd.com)
 
-**Visual inspiration.** [Chronotrains](https://www.chronotrains.com/en/explore/2659994-Lausanne) shows rail reachability
-spreading outward from a city as a time slider advances — the interaction model we
-adapt for news diffusion. The [Reuters COVID tracker](https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/) demonstrated that epidemiological
-and narrative spread share the same visual grammar: a phenomenon rippling outward
-across a world map over weeks. The Pudding (pudding.cool) influenced our scrollytelling
-across a world map over weeks. [The Pudding](https://pudding.cool/2025/07/street-view/) influenced our 
-approach — guiding users through event stops over time rather than presenting a raw
-dashboard.
+**Our originality.** Our approach is centered around dynamic visualization over time.
+The objective is to combine how coverage spreads from source, how sentiment changes,
+and how specific major events shift both. We track these dimensions simultaneously for
+user-defined topics and to our knowledge no public tool does this.
+
+**Visual inspiration.** Chronotrains shows rail reachability spreading outward from a
+city as a time slider advances, the interaction model we adapt for news diffusion. The
+Reuters COVID tracker demonstrated that epidemiological and narrative spread share the
+same visual grammar, a phenomenon rippling outward across a world map over weeks. The
+Pudding influenced our scrollytelling approach, guiding users through event stops over
+time rather than presenting a raw dashboard.
+
+Resources: [Chronotrains](https://www.chronotrains.com/en/explore/2659994-Lausanne), [Reuters COVID Tracker](https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/), [The Pudding](https://pudding.cool/2025/07/street-view/)
 
 ## Milestone 2 (17th April, 5pm)
 

@@ -20,10 +20,6 @@
 
 ### Problematic
 
-> Frame the general topic of your visualization and the main axis that you want to develop.
-> - What am I trying to show with my visualization?
-> - Think of an overview for the project, your motivation, and the target audience.
-
 **Motivation**  
 This visualization is grounded in the idea that the version of reality that news media constructs is never neutral, and rarely universal. The world is interconnected, but the news is localized, filtered and shaped by economic interests, political alliances, history, and perceived consequences of events. This leaves people with fundamentally different understandings of the same reality. This visualization makes those differences visible.
 

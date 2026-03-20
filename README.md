@@ -36,8 +36,9 @@ The target audience falls into two groups: the curious learner and the deep rese
 
 ### Exploratory Data Analysis
 
-> Pre-processing of the data set you chose
-> - Show some basic statistics and get insights about the data
+For the EDA, we work with a CSV extracted from the much larger GDELT Global Knowledge Graph, which tracks worldwide news coverage. The export used in this project contains 86,393 rows and six main fields, including date, tone, locations, source, article URL, and themes. Since GDELT fields are compact and need parsing, we first built the analysis on a smaller random sample of 10,000 rows. This makes it easier to test the cleaning steps and visualization pipeline before scaling the same process to the full dataset and to the other topics in the project. In practice, the EDA starts by converting the date field into a readable datetime, extracting the first value of V2Tone as the article sentiment score, and parsing V2Locations to recover a usable country field. After that, we examine the main structure of the data through sentiment distributions, article volume over time, country-level patterns, and keyword and theme analysis.
+
+Two figures are especially useful. The first is Sentiment Over Time, which shows daily sentiment together with a 30-day rolling average. This helps reveal whether changes in tone are just daily noise or part of a broader trend. It is important for the final globe because it supports the idea of a time slider that shows how the mood of coverage shifts over time. The second is the Narrative Affinity Network, which connects countries that share similar dominant themes. This figure adds another layer to the analysis because it shows relationships that are not only geographic. Two countries can be far apart on the map but still be close in terms of the stories being covered.
 
 ### Related Work
 

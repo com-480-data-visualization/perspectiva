@@ -71,7 +71,7 @@ The objective is to combine how coverage spreads from source, how sentiment chan
 and how specific major events shift both. We track these dimensions simultaneously for
 user-defined topics and to our knowledge no public tool does this.
 
-**Visual inspiration.** Chronotrains (n.d) shows rail reachability spreading outward from a
+**Visual inspiration.** Chronotrains (2026) shows rail reachability spreading outward from a
 city as a time slider advances, the interaction model we adapt for news diffusion. The
 Reuters COVID tracker (n.d) demonstrated that epidemiological and narrative spread share the
 same visual grammar, a phenomenon rippling outward across a world map over weeks. The
@@ -79,12 +79,12 @@ Pudding (2025) influenced our scrollytelling approach, guiding users through eve
 time rather than presenting a raw dashboard.
 
 ## Resources 
-Chronotrains. (n.d.). *Chronotrains*. https://www.chronotrains.com/en/explore/2659994-Lausanne  
-GDELT Project. (n.d.). *The GDELT Project*. https://blog.gdeltproject.org  
-Ijmacd. (n.d.). *Newsmap*. https://newsmap.ijmacd.com  
-Media Cloud. (n.d.). *Media Cloud*. https://mediacloud.org  
+Chronotrains. (2026). *Chronotrains*. https://www.chronotrains.com/en/explore/2659994-Lausanne  
+GDELT Project. (n.d.). *The GDELT Project*. [https://blog.gdeltproject.org ](https://www.gdeltproject.org/)  
+Ijmacd. (n.d.). *Newsmap*. https://newsmap.ijmacd.com/?edition=GB_en   
+Media Cloud. (n.d.). *Media Cloud*. https://www.mediacloud.org/   
 Reuters. (n.d.). *Reuters COVID tracker and maps*. https://www.reuters.com/graphics/world-coronavirus-tracker-and-maps/  
-The Pudding. (2025). *The Pudding*. https://pudding.cool/2025/07/street-view/  
+The Pudding. (2025). *The Pudding*. [https://pudding.cool/2025/07/street-view/  ](https://pudding.cool/)
 
 ## Milestone 2 (17th April, 5pm)
 

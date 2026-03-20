@@ -24,17 +24,17 @@
 > - What am I trying to show with my visualization?
 > - Think of an overview for the project, your motivation, and the target audience.
 
-Motivation
+**Motivation**  
 This visualization is grounded in the idea that the version of reality that news media constructs is never neutral, and rarely universal. The world is interconnected, but the news is localized, filtered and shaped by economic interests, political alliances, history, and perceived consequences of events. This leaves people with fundamentally different understandings of the same reality. This visualization makes those differences visible.
 
-Main Goal & Overview
+**Main Goal & Overview**  
 Our visualization explores how specific events and topics are reported, covered, and framed differently across the world and over time. Based on the GDELT dataset, an archive of online newspaper data, and AI sentiment analysis, it surfaces how the same moments in history have been portrayed differently depending on location, and how these portrayals have changed through time.
 
 The visualization affords users to explore quantitative data on a 3D world map, across dimensions such as place, time, sentiment, and sub-themes, and to compare coverage across countries. In addition, we will add complimentary 2D views for information that is better communicated in charts, graphs, networks, etc. It also allows users to gain qualitative insight, by linking directly to the source articles that the data is based on.
 
 As a starting point, the visualization will focus on three topics: Vaccines, Stock Market, and Social Media. These are chosen for their global relevance, and the different ways they have been covered across countries and over time. For future extension, interesting themes might include wars, political views, climate change. 
 
-Target Audience 
+**Target Audience**  
 The target audience falls into two groups: the curious learner and the deep researcher. The curious learners are people who want to explore global trends and gain an intuitive and visually engaging insight of how events are covered around the world. The deep researcher can use the visualization to filter, compare and extract data for their own analysis. 
 
 

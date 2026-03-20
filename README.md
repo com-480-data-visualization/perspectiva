@@ -42,6 +42,31 @@ Please, fill the following sections about your project.
 > - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
 > - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
 
+## Related Work
+
+**Existing approaches.** The GDELT Project (blog.gdeltproject.org) publishes extensive
+research on their own dataset — conflict monitoring, election analysis, pandemic
+tracking — but outputs are static snapshots aimed at researchers, not interactive
+public tools. Media Cloud (mediacloud.org) tracks global media attention across
+thousands of outlets and supports country-level comparisons over time, but has no
+sentiment layer and no geographic animation. Newsmap (newsmap.ijmacd.com) visualizes
+Google News as a live treemap by country, capturing news distribution in real time but
+with no time dimension and no topic tracking.
+
+**Our originality.** Our approach is centered around the dynamic visualization over time.
+The objective is to combine how data spreads from source, how sentiment changes over time,
+and how specific major events could drastically change this. We track these
+dimensions simultaneously for user-defined topics — to our knowledge no public tool
+does this.
+
+**Visual inspiration.** Chronotrains (chronotrains.com) shows rail reachability
+spreading outward from a city as a time slider advances — the interaction model we
+adapt for news diffusion. The Reuters COVID tracker demonstrated that epidemiological
+and narrative spread share the same visual grammar: a phenomenon rippling outward
+across a world map over weeks. The Pudding (pudding.cool) influenced our scrollytelling
+approach — guiding users through annotated event stops rather than presenting a raw
+dashboard.
+
 ## Milestone 2 (17th April, 5pm)
 
 **10% of the final grade**

@@ -1,8 +1,7 @@
-.venv/
+pipeline/.venv/
+pipeline/.env
 data/
-.env
 *.parquet
 *.csv
 __pycache__/
-.ipynb_checkpoints/
 *.json

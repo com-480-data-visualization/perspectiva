@@ -1,3 +1,4 @@
+import calendar
 import re
 from pathlib import Path
 
@@ -28,17 +29,22 @@ def fetch(
     """
     start = date_start + "-01"
     year, month = date_end.split("-")
-    end = f"{year}-{month}-31"
+    last_day = calendar.monthrange(int(year), int(month))[1]
+    end = f"{year}-{month}-{last_day:02d}"
 
     start_int = int(start.replace("-", "") + "000000")
     end_int   = int(end.replace("-", "")   + "235959")
 
-    clauses = []
+    # Each keyword must match (AND across keywords).
+    # Within a keyword, either the Themes field or the URL can match (OR).
+    per_kw = []
     for kw in keywords:
         kw = kw.lower().strip()
-        clauses.append(f"REGEXP_CONTAINS(LOWER(COALESCE(Themes, '')), r'\\b{kw}\\b')")
-        clauses.append(f"REGEXP_CONTAINS(LOWER(COALESCE(DocumentIdentifier, '')), r'{kw}')")
-    keyword_filter = "\n    OR ".join(clauses)
+        per_kw.append(
+            f"(REGEXP_CONTAINS(LOWER(COALESCE(Themes, '')), r'\\b{kw}\\b')"
+            f" OR REGEXP_CONTAINS(LOWER(COALESCE(DocumentIdentifier, '')), r'{kw}'))"
+        )
+    keyword_filter = "\n    AND ".join(per_kw)
 
     sql = f"""
     SELECT

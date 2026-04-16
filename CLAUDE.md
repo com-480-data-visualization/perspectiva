@@ -87,5 +87,25 @@ python run.py --topic "ukraine-war" --keywords "ukraine,russia,kyiv,zelensky,put
 cp output/ukraine-war-2022-02-2022-03.parquet ../app/public/data/
 ```
 
+## Progress
+
+- [x] Data pipeline — GDELT → parquet (`data-pipeline/`)
+- [x] **Step 1** — DuckDB layer: `app/src/lib/db.ts`, `queries.ts`, `types/index.ts`
+- [x] **Step 2** — API routes: `GET /api/sentiment?date=&file=` and `GET /api/sentiment/dates?file=`
+- [ ] **Step 3** — World map: MapLibre GL + world GeoJSON (`app/public/world-110m.geojson`) + country fill colors
+- [ ] **Step 4** — Date slider: `app/src/components/DateSlider.tsx`
+- [ ] **Step 5** — Data → map wiring: avg_tone color scale, article_count=0 dimmed grey
+- [ ] **Step 6** — Polish: loading states, legend (`Legend.tsx`), full-screen layout
+
+### API endpoints (working)
+- `GET /api/sentiment/dates?file=<slug>` → `{ dates: string[] }`
+- `GET /api/sentiment?date=YYYY-MM-DD&file=<slug>` → `{ date, countries: [{country_iso3, avg_tone, article_count}] }`
+- `avg_tone` is `null` when `article_count === 0` (no coverage, not yet forward-filled)
+
+### Key implementation notes
+- DuckDB runs server-side only (API routes). `serverExternalPackages: ['duckdb']` in `next.config.ts` keeps it out of the Turbopack bundle.
+- Parquet files live in `app/public/data/`. DuckDB reads them via absolute path with `read_parquet()`.
+- Map component must be `"use client"` — MapLibre GL is browser-only.
+
 ## Course
 EPFL COM-480 Data Visualization — Milestone 2 due 2026-04-17, Milestone 3 due 2026-05-29

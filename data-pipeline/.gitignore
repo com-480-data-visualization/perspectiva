@@ -1,0 +1,8 @@
+output/
+output/cache/
+*.json
+*.parquet
+.venv/
+__pycache__/
+*.pyc
+.env

@@ -1,5 +1,6 @@
 pipeline/.venv/
 pipeline/.env
+.claude/
 data/
 *.parquet
 *.csv

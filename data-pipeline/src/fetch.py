@@ -1,0 +1,87 @@
+import re
+from pathlib import Path
+
+import polars as pl
+from google.cloud import bigquery
+from google.oauth2 import service_account
+
+_CACHE_DIR = Path(__file__).parents[1] / "output" / "cache"
+
+
+def _cache_path(topic: str, keywords: list[str], date_start: str, date_end: str) -> Path:
+    slug = re.sub(r"[^a-z0-9]+", "-", topic.lower()).strip("-")
+    kw_slug = "-".join(sorted(kw.lower() for kw in keywords))[:60]
+    return _CACHE_DIR / f"{slug}__{kw_slug}__{date_start}__{date_end}.parquet"
+
+
+def fetch(
+    topic: str,
+    keywords: list[str],
+    date_start: str,        # "YYYY-MM"
+    date_end: str,          # "YYYY-MM"
+    credentials_path: str,
+    project_id: str,
+    dry_run: bool = False,
+) -> pl.DataFrame | None:
+    """Query GDELT GKG on BigQuery and return a raw Polars DataFrame.
+    Results are cached — re-running with the same parameters skips BigQuery.
+    """
+    start = date_start + "-01"
+    year, month = date_end.split("-")
+    end = f"{year}-{month}-31"
+
+    start_int = int(start.replace("-", "") + "000000")
+    end_int   = int(end.replace("-", "")   + "235959")
+
+    clauses = []
+    for kw in keywords:
+        kw = kw.lower().strip()
+        clauses.append(f"REGEXP_CONTAINS(LOWER(COALESCE(Themes, '')), r'\\b{kw}\\b')")
+        clauses.append(f"REGEXP_CONTAINS(LOWER(COALESCE(DocumentIdentifier, '')), r'{kw}')")
+    keyword_filter = "\n    OR ".join(clauses)
+
+    sql = f"""
+    SELECT
+        DATE,
+        SourceCommonName,
+        DocumentIdentifier,
+        V2Tone
+    FROM `gdelt-bq.gdeltv2.gkg_partitioned`
+    WHERE
+        _PARTITIONDATE BETWEEN DATE '{start}' AND DATE '{end}'
+        AND DATE BETWEEN {start_int} AND {end_int}
+        AND (
+            {keyword_filter}
+        )
+    """
+
+    creds = service_account.Credentials.from_service_account_file(credentials_path)
+    client = bigquery.Client(project=project_id, credentials=creds)
+
+    if dry_run:
+        job_config = bigquery.QueryJobConfig(dry_run=True, use_query_cache=False)
+        job = client.query(sql, job_config=job_config)
+        gb = job.total_bytes_processed / 1e9
+        print(f"\n--- DRY RUN ---")
+        print(f"  Query would process: {gb:.2f} GB")
+        print(f"  Free tier limit:     1 TB/month")
+        print(f"\n--- SQL ---\n{sql}")
+        return None
+
+    # Check cache
+    cache = _cache_path(topic, keywords, date_start, date_end)
+    if cache.exists():
+        print(f"Loading from cache: {cache.name}")
+        return pl.read_parquet(cache)
+
+    print(f"Querying BigQuery for '{topic}' ({start} → {end})...")
+    print(f"  Keywords: {keywords}")
+    rows = client.query(sql).to_dataframe()
+    df = pl.from_pandas(rows)
+    print(f"  Fetched {len(df):,} rows.")
+
+    _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    df.write_parquet(cache)
+    print(f"  Cached → {cache.name}")
+
+    return df

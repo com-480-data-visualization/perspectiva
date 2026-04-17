@@ -7,6 +7,7 @@ __pycache__/
 # Exclude credentials and GCP keys (any .json not explicitly allowed below)
 *.json
 !app/package.json
+!app/package-lock.json
 !app/tsconfig.json
 !app/public/world-110m.geojson
 !app/public/data/*.json

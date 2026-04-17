@@ -6,7 +6,10 @@
 | Vinayak Joshi | 423333 |
 | Gaspar Benavente | 421992 |
 
-[Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Milestone 1](#milestone-1) • [Milestone 2](<Milestones/Milestone 2 - Perspectiva.pdf>) • [Milestone 3](#milestone-3)
+
+## Current Working Demo:
+https://com-480-data-visualization.github.io/perspectiva/
 
 ## Milestone 1 (20th March, 5pm)
 

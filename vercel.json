@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm install --ignore-scripts && npm run build",
+  "installCommand": "npm install --ignore-scripts",
+  "framework": "nextjs",
+  "rootDirectory": "app"
+}

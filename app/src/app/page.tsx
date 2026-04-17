@@ -29,7 +29,7 @@ export default function Home() {
 
   // Load static JSON on mount
   useEffect(() => {
-    fetch(`/perspectiva/data/${FILE}.json`)
+    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/data/${FILE}.json`)
       .then((r) => r.json())
       .then((data: DataPayload) => {
         setPayload(data);

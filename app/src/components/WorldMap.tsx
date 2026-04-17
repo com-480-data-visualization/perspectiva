@@ -173,7 +173,7 @@ export default function WorldMap({ countries, mode }: WorldMapProps) {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
       >
-        <Source id="countries" type="geojson" data="/world-110m.geojson" generateId>
+        <Source id="countries" type="geojson" data={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/world-110m.geojson`} generateId>
           <Layer {...fillLayer} />
           <Layer {...outlineLayer} />
         </Source>

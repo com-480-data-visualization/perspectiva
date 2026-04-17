@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // duckdb ships a native .node binary — opt it out of bundling so Node.js require() handles it.
-  serverExternalPackages: ['duckdb'],
+  output: 'export',          // static HTML/JS — no Node server needed
+  basePath: '/perspectiva',  // GitHub Pages serves at /perspectiva
+  trailingSlash: true,       // required for GH Pages file routing
+  images: { unoptimized: true }, // next/image doesn't work in static export
 };
 
 export default nextConfig;

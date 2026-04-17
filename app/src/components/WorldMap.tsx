@@ -9,6 +9,7 @@ import type { SentimentRow } from '@/types';
 const BLANK_STYLE = {
   version: 8 as const,
   sources: {},
+  projection: { type: 'mercator' },
   layers: [
     {
       id: 'background',
@@ -80,6 +81,13 @@ export default function WorldMap({ countries }: WorldMapProps) {
       initialViewState={{ longitude: 0, latitude: 20, zoom: 1.5 }}
       style={{ width: '100%', height: '100%' }}
       mapStyle={BLANK_STYLE}
+      renderWorldCopies={false}
+      dragPan={false}
+      dragRotate={false}
+      scrollZoom={false}
+      doubleClickZoom={false}
+      touchZoomRotate={false}
+      keyboard={false}
     >
       <Source id="countries" type="geojson" data="/world-110m.geojson">
         <Layer {...fillLayer} />

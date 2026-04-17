@@ -91,6 +91,8 @@ The Pudding. (2025). *The Pudding*. [https://pudding.cool/2025/07/street-view/  
 
 ## Milestone 2 (17th April, 5pm)
 
+Please find the pdf at : Milestones/Milestone 2 - Perspectiva.pdf
+
 **10% of the final grade**
 
 
